@@ -12,14 +12,14 @@ import (
 )
 
 func NewMysqlDB() *sql.DB {
-	// db, err := sql.Open("mysql", "root:password@tcp(cake-store-mysql:3306)/golang?parseTime=true")
+	db, err := sql.Open("mysql", "root:password@tcp(localhost:3306)/golang?parseTime=true")
 
-	connStr, err := loadConfig()
-	if err != nil {
-		return nil
-	}
+	// connStr, err := loadConfig()
+	// if err != nil {
+	// 	return nil
+	// }
 
-	db, err := sql.Open("mysql", connStr)
+	// db, err := sql.Open("mysql", connStr)
 	helper.PanicIfError(err)
 
 	// See "Important settings" section.

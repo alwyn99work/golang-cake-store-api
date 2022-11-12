@@ -15,7 +15,7 @@ services:
             - ./mysql/data:/var/lib/mysql
     backend:
         container_name: cake-store-backend
-        build: ./
+        build: .
         ports:
             - 8001:8001
         environment:
