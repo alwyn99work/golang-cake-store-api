@@ -12,8 +12,7 @@ import (
 )
 
 func NewMysqlDB() *sql.DB {
-	// db, err := sql.Open("mysql", "root:password@tcp(cake-store-mysql:3306)/cake?parseTime=true")
-	db, err := sql.Open("mysql", "root:password@tcp(cake-store-mariadb:3306)/cake?parseTime=true")
+	db, err := sql.Open("mysql", "root:password@tcp(localhost:3306)/golang?parseTime=true")
 
 	// connStr, err := loadConfig()
 	// if err != nil {

@@ -25,7 +25,7 @@ import (
 )
 
 func setupTestDB() *sql.DB {
-	db, err := sql.Open("mysql", "root:password@tcp(cake-store-mysql:3306)/golang?parseTime=true")
+	db, err := sql.Open("mysql", "root:password@tcp(localhost:3306)/golang?parseTime=true")
 	helper.PanicIfError(err)
 
 	// See "Important settings" section.
