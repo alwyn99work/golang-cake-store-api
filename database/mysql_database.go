@@ -12,14 +12,15 @@ import (
 )
 
 func NewMysqlDB() *sql.DB {
-	db, err := sql.Open("mysql", "root:password@tcp(localhost:3306)/golang?parseTime=true")
+	// db, err := sql.Open("mysql", "root:password@tcp(cake-store-mysql:3306)/cake?parseTime=true")
+	db, err := sql.Open("mysql", "root:password@tcp(cake-store-mariadb:3306)/cake?parseTime=true")
 
 	// connStr, err := loadConfig()
 	// if err != nil {
 	// 	return nil
 	// }
 
-	// db, err := sql.Open("mysql", connStr)
+	// db, err := sql.Open("mariadb", connStr)
 	helper.PanicIfError(err)
 
 	// See "Important settings" section.
@@ -55,7 +56,7 @@ func loadConfig() (string, error) {
 		return "", fmt.Errorf("Environment variable DB_PASSWORD must be set")
 	}
 	// db, err := sql.Open("mysql", "root:password@tcp(cake-store-mysql:3306)/golang?parseTime=true")
-	connStr := fmt.Sprintf("mysql://%s:%s@tcp(%s:%s)/%s?parseTime=true",
+	connStr := fmt.Sprintf("mariadb://%s:%s@tcp(%s:%s)/%s?parseTime=true",
 		os.Getenv("DB_USER"),
 		os.Getenv("DB_PASSWORD"),
 		os.Getenv("DB_HOST"),
